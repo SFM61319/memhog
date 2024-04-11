@@ -1,0 +1,34 @@
+\hypertarget{memhog_8h_source}{}\doxysection{memhog.\+h}
+\label{memhog_8h_source}\index{include/memhog.h@{include/memhog.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{memhog_8h_source_l00001}00001 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{\Hypertarget{memhog_8h_source_l00002}00002 }
+\DoxyCodeLine{\Hypertarget{memhog_8h_source_l00003}00003 \textcolor{preprocessor}{\#ifndef MEMHOG\_H}}
+\DoxyCodeLine{\Hypertarget{memhog_8h_source_l00004}00004 \textcolor{preprocessor}{\#define MEMHOG\_H 1}}
+\DoxyCodeLine{\Hypertarget{memhog_8h_source_l00005}00005 }
+\DoxyCodeLine{\Hypertarget{memhog_8h_source_l00006}00006 \textcolor{preprocessor}{\#include <stddef.h>}}
+\DoxyCodeLine{\Hypertarget{memhog_8h_source_l00007}00007 \textcolor{preprocessor}{\#include <stdint.h>}}
+\DoxyCodeLine{\Hypertarget{memhog_8h_source_l00008}00008 }
+\DoxyCodeLine{\Hypertarget{memhog_8h_source_l00009}00009 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{\Hypertarget{memhog_8h_source_l00010}00010 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}}}
+\DoxyCodeLine{\Hypertarget{memhog_8h_source_l00011}00011 \{}
+\DoxyCodeLine{\Hypertarget{memhog_8h_source_l00012}00012 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* \_\_cplusplus */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{memhog_8h_source_l00013}00013 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{memhog_8h_source_l00014}00014 \textcolor{comment}{  /// @brief Gets the total memory available on the system (in bytes).}}
+\DoxyCodeLine{\Hypertarget{memhog_8h_source_l00015}00015 \textcolor{comment}{  /// @return The total system memory in bytes.}}
+\DoxyCodeLine{\Hypertarget{memhog_8h_source_l00016}00016 \textcolor{comment}{}  \textcolor{keyword}{extern} \textcolor{keywordtype}{size\_t} get\_total\_system\_memory (\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{memhog_8h_source_l00017}00017 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{memhog_8h_source_l00018}00018 \textcolor{comment}{  /// @brief Allocates memory of the given size and fills it with random bytes.}}
+\DoxyCodeLine{\Hypertarget{memhog_8h_source_l00019}00019 \textcolor{comment}{  /// @param size The number of bytes to allocate.}}
+\DoxyCodeLine{\Hypertarget{memhog_8h_source_l00020}00020 \textcolor{comment}{  /// @return A pointer to the allocated memory, or `NULL` if allocation}}
+\DoxyCodeLine{\Hypertarget{memhog_8h_source_l00021}00021 \textcolor{comment}{  /// failed.}}
+\DoxyCodeLine{\Hypertarget{memhog_8h_source_l00022}00022 \textcolor{comment}{}  \textcolor{keyword}{extern} uint8\_t *hog\_memory (\textcolor{keywordtype}{size\_t} size);}
+\DoxyCodeLine{\Hypertarget{memhog_8h_source_l00023}00023 }
+\DoxyCodeLine{\Hypertarget{memhog_8h_source_l00024}00024 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{\Hypertarget{memhog_8h_source_l00025}00025 \}}
+\DoxyCodeLine{\Hypertarget{memhog_8h_source_l00026}00026 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* \_\_cplusplus */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{memhog_8h_source_l00027}00027 }
+\DoxyCodeLine{\Hypertarget{memhog_8h_source_l00028}00028 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* MEMHOG\_H */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

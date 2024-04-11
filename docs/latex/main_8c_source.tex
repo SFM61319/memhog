@@ -1,0 +1,62 @@
+\hypertarget{main_8c_source}{}\doxysection{main.\+c}
+\label{main_8c_source}\index{src/main.c@{src/main.c}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00001}00001 \textcolor{preprocessor}{\#include <errno.h>}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00002}00002 \textcolor{preprocessor}{\#include <stddef.h>}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00003}00003 \textcolor{preprocessor}{\#include <stdint.h>}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00004}00004 \textcolor{preprocessor}{\#include <stdio.h>}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00005}00005 \textcolor{preprocessor}{\#include <stdlib.h>}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00006}00006 }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00007}00007 \textcolor{preprocessor}{\#include "{}memhog.h"{}}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00008}00008 }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00009}00009 \textcolor{keywordtype}{int}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00010}00010 main (\textcolor{keywordtype}{int} \textcolor{keyword}{const} argc, \textcolor{keywordtype}{char} \textcolor{keyword}{const} *\textcolor{keyword}{const} argv[])}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00011}00011 \{}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00012}00012   \textcolor{keywordtype}{size\_t} size = 0;}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00013}00013   \textcolor{keywordflow}{if} (argc < 2)}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00014}00014     \{}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00015}00015       size = get\_total\_system\_memory ();}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00016}00016     \}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00017}00017   \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00018}00018     \{}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00019}00019       \textcolor{keywordtype}{char} *endptr = NULL;}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00020}00020 }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00021}00021       errno = 0;}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00022}00022       size = (size\_t)strtoull (argv[1], \&endptr, 0);}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00023}00023 }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00024}00024       \textcolor{keywordflow}{if} (errno != 0 || endptr == NULL || *endptr != \textcolor{charliteral}{'\(\backslash\)0'})}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00025}00025         \{}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00026}00026           fprintf (stderr, \textcolor{stringliteral}{"{}Invalid argument: \%s\(\backslash\)n"{}}, argv[1]);}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00027}00027           fflush (stderr);}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00028}00028 }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00029}00029           \textcolor{keywordflow}{return} EXIT\_FAILURE;}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00030}00030         \}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00031}00031     \}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00032}00032 }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00033}00033   printf (\textcolor{stringliteral}{"{}Allocating \%zu bytes of memory..."{}}, size);}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00034}00034   fflush (stdout);}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00035}00035 }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00036}00036   uint8\_t *\textcolor{keyword}{const} memory = hog\_memory (size);}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00037}00037   \textcolor{keywordflow}{if} (memory == NULL)}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00038}00038     \{}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00039}00039       printf (\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00040}00040       fprintf (stderr, \textcolor{stringliteral}{"{}Failed to allocate \%zu bytes of memory.\(\backslash\)n"{}}, size);}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00041}00041 }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00042}00042       fflush (stdout);}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00043}00043       fflush (stderr);}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00044}00044 }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00045}00045       \textcolor{keywordflow}{return} EXIT\_FAILURE;}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00046}00046     \}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00047}00047 }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00048}00048   printf (\textcolor{stringliteral}{"{}Done.\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00049}00049   printf (\textcolor{stringliteral}{"{}Press Enter to release memory and exit..."{}});}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00050}00050   fflush (stdout);}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00051}00051 }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00052}00052   getchar ();}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00053}00053   free (memory);}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00054}00054 }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00055}00055   \textcolor{keywordflow}{return} EXIT\_SUCCESS;}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00056}00056 \}}
+
+\end{DoxyCode}
